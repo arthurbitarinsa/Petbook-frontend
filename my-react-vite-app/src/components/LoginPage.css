@@ -1,0 +1,172 @@
+/* LoginPage.css */
+
+.login-container {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .petbook-heading {
+    font-size: 48px;
+    color: #4CAF50; /* Light green */
+  }
+  
+  .tagline {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50; /* Light green */
+  }
+  
+  .login-form {
+    margin-top: 50px;
+  }
+  
+  .login-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 50px;
+    border: 1px solid 05FA00;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Light green */
+    color: rgb(165, 39, 39);
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #6249e1; /* Darker green on hover */
+  }
+  
+  .register-link {
+    margin-top: 20px;
+    font-style: italic;
+  }
+  
+  .register-link a {
+    color: #2393ef; /* Blue */
+  }
+
+  /* LoginPage.css */
+
+/* LoginPage.css */
+
+.login-container {
+  text-align: center;
+  padding: 50px;
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Ensures the background covers the entire viewport height */
+}
+
+/* LoginPage.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background-size: cover;
+  background-position: center;
+}
+
+.login-container {
+  text-align: center;
+  padding: 50px;
+  height: 100vh; /* Ensures the container covers the entire viewport height */
+}
+/* LoginPage.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background-image: url('https://th.bing.com/th/id/R.964ce13c80c2973e6e786ec2c06b285d?rik=kZA1BbzLEM4%2fEw&riu=http%3a%2f%2fwww.zastavki.com%2fpictures%2foriginals%2f2013%2fAnimals___Cats_Cat_and_dog__a_true_friendship_044353_.jpg&ehk=xzG5kxCZs8a%2bwuUIFWEFbm2Q1g7XEEyP0uFMCGEWB1k%3d&risl=&pid=ImgRaw&r=0'); 
+  background-size: contain; /* Adjusted to contain */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center;
+}
+
+.login-container {
+  text-align: center;
+  padding: 50px;
+  height: 100vh; /* Ensures the container covers the entire viewport height */
+}
+
+/* LoginPage.css */
+
+/* Define a class for the green color */
+.green-text {
+  color: #05FA00;
+}
+
+/* Apply the green color to specific elements */
+.input-group label,
+.register-link {
+  color: #05FA00;
+}
+.loginmain {
+  color:#2393ef
+}
+/* LoginPage.css */
+
+/* Define a class for the green color */
+.green-text {
+  color: #05FA00;
+}
+
+/* Apply the green color to specific elements */
+.input-group label {
+  color: #05FA00;
+  border-radius: 5px; /* Add rounded corners */
+}
+
+/* LoginPage.css */
+
+/* Define a class for the green color */
+.green-text {
+  color: #05FA00;
+}
+
+/* Apply the green color to specific elements */
+.input-group label {
+  color: #05FA00;
+  border-radius: 5px; /* Add rounded corners */
+}
+
+/* Style the login button */
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Light green */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer;
+  transition: background-image 0.3s; /* Add transition effect for background image */
+  background-size: cover; /* Ensure the background image covers the button */
+}
+
+/* Add background image on hover */
+button:hover {
+  background-image: url('https://th.bing.com/th/id/R.964ce13c80c2973e6e786ec2c06b285d?rik=kZA1BbzLEM4%2fEw&riu=http%3a%2f%2fwww.zastavki.com%2fpictures%2foriginals%2f2013%2fAnimals___Cats_Cat_and_dog__a_true_friendship_044353_.jpg&ehk=xzG5kxCZs8a%2bwuUIFWEFbm2Q1g7XEEyP0uFMCGEWB1k%3d&risl=&pid=ImgRaw&r=0'); /* Replace with path to your hover image */
+}
