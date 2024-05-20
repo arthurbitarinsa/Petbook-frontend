@@ -1,0 +1,43 @@
+/* PostList.module.css */
+
+.postList {
+    max-height: 80vh;
+    overflow-y: scroll;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .post {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    margin-bottom: 15px;
+  }
+  
+  .postImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .postActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  
+  .error {
+    color: red;
+  }
+  
