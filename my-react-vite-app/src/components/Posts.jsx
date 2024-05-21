@@ -1,73 +1,70 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import styles from './Posts.module.css';
+import React, { useState } from "react";
+import axios from "axios";
 
 const Posts = () => {
-  const [description, setDescription] = useState('');
-  const [photoUrl, setPhotoUrl] = useState('');
-  const [petId, setPetId] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [description, setDescription] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
+  const [petId, setPetId] = useState("");
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setError('');
-    setSuccess('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const postData = {
+      description,
+      photo_url: photoUrl,
+      pet: parseInt(petId),
+    };
+
+    console.log("Submitting post data:", postData);
 
     try {
-      const response = await axios.post('https://petbook-back-aa858b6addea.herokuapp.com/api/posts/', {
-        description,
-        photo_url: photoUrl,
-        pet: parseInt(petId),
-      });
-
-      if (response.status === 201) {
-        setSuccess('Post created successfully!');
-        setDescription('');
-        setPhotoUrl('');
-        setPetId('');
-      }
+        const tokens = localStorage.getItem('authToken')
+        const token = "bearer " + tokens 
+        const config = {
+            headers: {
+                 'Authorization': token,
+                 'Content-Type': 'application/json'
+            }
+        }
+      const response = await axios.post(
+        "https://petbook-back-aa858b6addea.herokuapp.com/api/posts/",
+        postData, config
+      );
+      console.log("Post successful:", response.data);
     } catch (error) {
-      setError('An error occurred while creating the post.');
+      console.error("Error posting data:", error);
     }
   };
 
   return (
-    <div className={styles.postsContainer}>
-      <h2>Create a New Post</h2>
-      {error && <p className={styles.error}>{error}</p>}
-      {success && <p className={styles.success}>{success}</p>}
+    <div>
+      <h1>Create a New Post</h1>
       <form onSubmit={handleSubmit}>
-        <div className={styles.formGroup}>
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
+        <div>
+          <label>Description:</label>
+          <input
+            type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
           />
         </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="photoUrl">Photo URL:</label>
+        <div>
+          <label>Photo URL:</label>
           <input
-            type="url"
-            id="photoUrl"
+            type="text"
             value={photoUrl}
             onChange={(e) => setPhotoUrl(e.target.value)}
-            required
           />
         </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="petId">Pet ID:</label>
+        <div>
+          <label>Pet ID:</label>
           <input
             type="number"
-            id="petId"
             value={petId}
             onChange={(e) => setPetId(e.target.value)}
-            required
           />
         </div>
-        <button type="submit">Create Post</button>
+        <button type="submit">Submit Post</button>
       </form>
     </div>
   );

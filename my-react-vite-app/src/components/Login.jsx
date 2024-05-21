@@ -25,12 +25,11 @@ const Login = () => {
         'https://petbook-back-aa858b6addea.herokuapp.com/auth/login/',
         inputs
       );
+      console.log(response)
 
-      if (response.status === 200 && response.data.token) {
-        const token = response.data.token;
+      if (response.status === 200 && response.data.tokens) {
+        const token = response.data.tokens.access;
         localStorage.setItem('authToken', token);
-        const decodedToken = jwtDecode(token);
-        setUser(decodedToken.user);  // Adjust based on your token structure
         setSuccess("Login successful! Redirecting to home...");
         setTimeout(() => {
           navigate("/");

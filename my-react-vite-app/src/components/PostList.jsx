@@ -8,8 +8,16 @@ const PostList = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      try {
-        const response = await axios.get('https://petbook-back-aa858b6addea.herokuapp.com/api/posts/');
+        try {
+            const tokens = localStorage.getItem('authToken')
+            const token = "bearer " + tokens 
+            const config = {
+                headers: {
+                     'Authorization': token,
+                     'Content-Type': 'application/json'
+                }
+            }
+        const response = await axios.get('https://petbook-back-aa858b6addea.herokuapp.com/api/posts/', config);
         setPosts(response.data);
       } catch (error) {
         setError('Failed to fetch posts');

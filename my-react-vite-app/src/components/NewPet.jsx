@@ -24,7 +24,15 @@ function NewPet() {
     setSuccess(null);
 
     try {
-      await axios.post('https://petbook-back-aa858b6addea.herokuapp.com/api/pets/', petData);
+        const tokens = localStorage.getItem('authToken')
+        const token = "bearer " + tokens 
+        const config = {
+            headers: {
+                 'Authorization': token,
+                 'Content-Type': 'application/json'
+            }
+        }
+      await axios.post('https://petbook-back-aa858b6addea.herokuapp.com/api/pets/', petData, config);
       setSuccess('Pet added successfully!');
       setPetData({
         name: '',
