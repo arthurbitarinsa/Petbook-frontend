@@ -1,37 +1,21 @@
 .home-page {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     justify-content: space-between;
-  }
-  
-  .app-title {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-family: 'Arial', sans-serif; /* Choose your desired font */
-    box-shadow: 0px 4px 2px -2px gray;
-  }
-  
-  .app-title h1 {
-    margin: 0;
-    font-size: 3em; /* Adjust the size as needed */
   }
   
   .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #444;
-    color: white;
+    padding: 1rem;
+    background-color: #f8f9fa;
   }
   
   .nav-links a {
-    margin-right: 20px;
-    color: white;
+    margin-right: 1rem;
     text-decoration: none;
+    color: #000;
   }
   
   .nav-links a:hover {
@@ -43,22 +27,27 @@
     align-items: center;
   }
   
+  .app-title {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
   .body {
-    flex: 1;
+    flex-grow: 1;
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
+    transition: background-image 1s ease-in-out;
   }
   
   .footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
+    background-color: #f8f9fa;
     text-align: center;
-    box-shadow: 0px -4px 2px -2px gray;
+    padding: 1rem;
   }
   
-  .footer-content p {
-    margin: 0;
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   

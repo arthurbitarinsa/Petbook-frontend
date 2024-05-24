@@ -1,6 +1,8 @@
+// NavBar.jsx
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import './NavBar.css'; 
 
 const NavBar = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -26,6 +28,8 @@ const NavBar = () => {
           <Link to="/posts">Posts</Link>
           <Link to="/allpets">AllPets</Link>
           <Link to="/postlist">PostList</Link>
+          <Link to="/home">Home</Link>
+          <Link to="/feed">Feed</Link>
         </>
       )}
     </nav>

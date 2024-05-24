@@ -25,6 +25,7 @@ const App = () => {
           <Route path="/posts" element={<Posts />} />
           <Route path="/allpets" element={<AllPets />} />
           <Route path="/postlist" element={<PostList />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
       </Router>
     </AuthProvider>

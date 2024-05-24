@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './Posts.css'; 
 
 const Posts = () => {
   const [description, setDescription] = useState("");
@@ -27,8 +28,8 @@ const Posts = () => {
             }
         }
       const response = await axios.post(
-        "https://petbook-back-aa858b6addea.herokuapp.com/api/posts/",
-        postData, config
+        "https://petbook-back-aa858b6addea.herokuapp.com/api/posts/", postData, config
+
       );
       console.log("Post successful:", response.data);
     } catch (error) {
@@ -37,7 +38,7 @@ const Posts = () => {
   };
 
   return (
-    <div>
+    <div className="posts-container">
       <h1>Create a New Post</h1>
       <form onSubmit={handleSubmit}>
         <div>

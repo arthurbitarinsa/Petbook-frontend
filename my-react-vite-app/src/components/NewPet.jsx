@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './NewPet.css'
 
 function NewPet() {
   const [petData, setPetData] = useState({
@@ -25,7 +26,9 @@ function NewPet() {
 
     try {
         const tokens = localStorage.getItem('authToken')
-        const token = "bearer " + tokens 
+    
+        const token = "bearer " + tokens
+        
         const config = {
             headers: {
                  'Authorization': token,

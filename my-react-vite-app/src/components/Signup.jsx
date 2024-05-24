@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './Signup.css'; 
 
 const Signup = () => {
-  const [inputs, setInputs] = useState({ username: '', email: '', password: '' });
+  const [inputs, setInputs] = useState({ email: '', password: '', username: '' });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Signup = () => {
         'https://petbook-back-aa858b6addea.herokuapp.com/auth/signup/',
         inputs
       );
+      console.log(response);
 
       if (response.status === 201) {
         setSuccess("Signup successful! Redirecting to login...");
@@ -33,7 +35,11 @@ const Signup = () => {
       }
     } catch (err) {
       if (err.response) {
-        setError("Something went wrong. Please try again later.");
+        if (err.response.status === 400) {
+          setError("Email or username already exists.");
+        } else {
+          setError("Something went wrong. Please try again later.");
+        }
       } else {
         setError("Network error. Please check your internet connection.");
       }
@@ -41,9 +47,9 @@ const Signup = () => {
   };
 
   return (
-    <div className="auth">
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="auth-container">
+      <h1 style={{ color: 'lightgreen' }}>PET BOOK</h1>
+      <form onSubmit={handleSubmit} className="auth-form">
         <input
           required
           name="username"
@@ -65,7 +71,7 @@ const Signup = () => {
           placeholder="Password"
           onChange={handleChange}
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="auth-button">Sign Up</button>
         {error && <p className="error">{error}</p>}
         {success && <p className="success">{success}</p>}
         <span>

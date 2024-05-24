@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
-import { jwtDecode } from 'jwt-decode';
+import './Login.css'; 
 
 const Login = () => {
   const [inputs, setInputs] = useState({ email: '', password: '' });
@@ -25,11 +25,16 @@ const Login = () => {
         'https://petbook-back-aa858b6addea.herokuapp.com/auth/login/',
         inputs
       );
-      console.log(response)
+      console.log(response);
 
       if (response.status === 200 && response.data.tokens) {
         const token = response.data.tokens.access;
         localStorage.setItem('authToken', token);
+
+        // Decode the token and set the user context
+        const decodedToken = jwtDecode(token);
+        setUser(decodedToken);
+
         setSuccess("Login successful! Redirecting to home...");
         setTimeout(() => {
           navigate("/");
@@ -53,10 +58,9 @@ const Login = () => {
   };
 
   return (
-    <div className="auth">
-      <h1>login</h1>
-      <h2><Link to="/feed">Feed</Link></h2>
-      <form onSubmit={handleSubmit}>
+    <div className="auth-container">
+      <h1 style={{ color: 'lightgreen' }}>PET BOOK</h1>
+      <form onSubmit={handleSubmit} className="auth-form">
         <input
           required
           name="email"
@@ -71,7 +75,7 @@ const Login = () => {
           placeholder="Password"
           onChange={handleChange}
         />
-        <button type="submit">Login</button>
+        <button type="submit" className="auth-button">Login</button>
         {error && <p className="error">{error}</p>}
         {success && <p className="success">{success}</p>}
         <span>
