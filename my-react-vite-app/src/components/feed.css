@@ -1,0 +1,83 @@
+/* feed.css */
+
+/* Feed container */
+.feed-container {
+    padding: 20px;
+  }
+  
+  /* Feed header */
+  .feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Feed title */
+  .feed-title {
+    font-size: 36px;
+    color: #740bb9;
+  }
+  
+  /* Add pet link */
+  .add-pet-link {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #FFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-pet-link:hover {
+    background-color: #45a049;
+  }
+  
+  /* Feed content */
+  .feed-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Feed category */
+  .feed-category {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  /* Feed category title */
+  .feed-category-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Feed category description */
+  .feed-category-description {
+    color: #666;
+  }
+  
+  /* Feed categories */
+  .feed-categories {
+    gap: 10px;
+  }
+  
+  /* Feed category link */
+  .feed-category-link {
+    display: block;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    color: #270a70;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .feed-category-link:hover {
+    background-color: #e0e0e0;
+  }
+  

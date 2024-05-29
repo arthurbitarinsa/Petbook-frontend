@@ -1,0 +1,53 @@
+.home-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #f8f9fa;
+  }
+  
+  .nav-links a {
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .welcome-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .app-title {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .body {
+    flex-grow: 1;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+  }
+  
+  .footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
