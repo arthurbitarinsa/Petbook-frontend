@@ -1,71 +1,78 @@
-import React, { useState } from "react";
-import axios from "axios";
-import './Posts.css'; 
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './Posts.css';
 
 const Posts = () => {
-  const [description, setDescription] = useState("");
-  const [photoUrl, setPhotoUrl] = useState("");
-  const [petId, setPetId] = useState("");
+  const [description, setDescription] = useState('');
+  const [photoUrl, setPhotoUrl] = useState('');
+  const [pet, setPet] = useState('');
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
+    setSuccess(null);
 
     const postData = {
       description,
       photo_url: photoUrl,
-      pet: parseInt(petId),
+      pet: parseInt(pet),  // Assuming pet is an ID and should be an integer
     };
 
-    console.log("Submitting post data:", postData);
-
     try {
-        const tokens = localStorage.getItem('authToken')
-        const token = "bearer " + tokens 
-        const config = {
-            headers: {
-                 'Authorization': token,
-                 'Content-Type': 'application/json'
-            }
-        }
       const response = await axios.post(
-        "https://petbook-back-aa858b6addea.herokuapp.com/api/posts/", postData, config
-
+        'https://petbook-back-aa858b6addea.herokuapp.com/api/posts/',
+        postData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
       );
-      console.log("Post successful:", response.data);
-    } catch (error) {
-      console.error("Error posting data:", error);
+      console.log('Submitting post data:', postData);
+      if (response.status === 201) {
+        setSuccess('Post created successfully!');
+        setDescription('');
+        setPhotoUrl('');
+        setPet('');
+      } else {
+        setError('Failed to create post.');
+      }
+    } catch (err) {
+      console.error('Error posting data:', err);
+      setError('Request failed with status code ' + err.response?.status || 500);
     }
   };
 
   return (
     <div className="posts-container">
-      <h1>Create a New Post</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Description:</label>
-          <input
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Photo URL:</label>
-          <input
-            type="text"
-            value={photoUrl}
-            onChange={(e) => setPhotoUrl(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Pet ID:</label>
-          <input
-            type="number"
-            value={petId}
-            onChange={(e) => setPetId(e.target.value)}
-          />
-        </div>
-        <button type="submit">Submit Post</button>
+      <h2>Create a New Post</h2>
+      <form onSubmit={handleSubmit} className="posts-form">
+        <input
+          type="text"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Photo URL"
+          value={photoUrl}
+          onChange={(e) => setPhotoUrl(e.target.value)}
+          required
+        />
+        <input
+          type="number"
+          placeholder="Pet ID"
+          value={pet}
+          onChange={(e) => setPet(e.target.value)}
+          required
+        />
+        <button type="submit" className="submit-button">Submit</button>
+        {error && <p className="error">{error}</p>}
+        {success && <p className="success">{success}</p>}
       </form>
     </div>
   );

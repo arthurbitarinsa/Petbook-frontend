@@ -31,9 +31,7 @@ const Login = () => {
         const token = response.data.tokens.access;
         localStorage.setItem('authToken', token);
 
-        // Decode the token and set the user context
-        const decodedToken = jwtDecode(token);
-        setUser(decodedToken);
+       
 
         setSuccess("Login successful! Redirecting to home...");
         setTimeout(() => {
@@ -51,9 +49,7 @@ const Login = () => {
         } else {
           setError("Something went wrong. Please try again later.");
         }
-      } else {
-        setError("Network error. Please check your internet connection.");
-      }
+      } 
     }
   };
 
