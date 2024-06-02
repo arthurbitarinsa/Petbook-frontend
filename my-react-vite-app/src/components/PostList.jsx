@@ -28,12 +28,12 @@ const PostList = () => {
   }, []);
 
   const handleLike = (postId) => {
-    // Implement the like functionality here
+
     console.log(`Liked post with ID: ${postId}`);
   };
 
   const handleComment = (postId) => {
-    // Implement the comment functionality here
+  
     console.log(`Commented on post with ID: ${postId}`);
   };
 
