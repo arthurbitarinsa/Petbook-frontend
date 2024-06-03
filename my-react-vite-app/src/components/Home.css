@@ -1,123 +1,89 @@
-/* home.css */
-body {
+/* General Styles */
+body, html {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
 }
 
+/* Home Page Styles */
 .home-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+/* Header Styles */
 .app-title {
-  background-color: #00bfff;
+  background-color: #333;
   color: white;
-  text-align: center;
   padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
+.app-title h1 {
+  margin: 0;
+}
+
+/* Navbar Styles */
 .navbar {
+  width: 100%;
+  background-color: #555;
   display: flex;
   justify-content: space-between;
-  background-color: #333;
-  padding: 10px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 15px;
+  align-items: center;
+  padding: 10px 20px;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
-  padding: 10px;
+  margin-right: 20px;
 }
 
-.nav-links a:hover {
-  background-color: #575757;
-  border-radius: 5px;
-}
-
-.welcome-section {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.welcome-text {
+.navbar .welcome-section {
   color: white;
 }
 
-.logout-button {
-  background-color: #ff4d4d;
-  color: white;
+.navbar .welcome-section button {
+  padding: 5px 10px;
+  background-color: #f00;
   border: none;
-  padding: 10px 20px;
+  color: white;
   cursor: pointer;
-  border-radius: 5px;
 }
 
-.logout-button:hover {
-  background-color: #ff1a1a;
-}
-
+/* Body Styles */
 .body {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: cover;
+  background-size: contain; /* Change from cover to contain to make the image smaller */
+  background-repeat: no-repeat;
   background-position: center;
-  position: relative;
+  opacity: 0.9; /* Slightly reduced opacity */
 }
 
-.overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 50px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.intro-text h2 {
-  margin: 0 0 10px;
-}
-
-.intro-text p {
-  margin: 0;
-}
-
+/* Footer Styles */
 .footer {
-  background-color: black;
+  width: 100%;
+  background-color: #333;
   color: white;
+  padding: 20px 0;
   text-align: center;
-  padding: 40px 20px;
 }
 
-.footer-content {
+.footer .footer-content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
 
-.footer-content p {
-  font-size: 1.5em;
-  margin: 10px 0;
-}
-
-.chat-button {
-  background-color: #00bfff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 1.2em;
-  margin-top: 20px;
-}
-
-.chat-button:hover {
-  background-color: #008fbf;
+.footer .footer-content p {
+  margin: 0;
 }
